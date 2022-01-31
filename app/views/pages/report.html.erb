@@ -1,0 +1,23 @@
+<% flash.each do |type, msg| %>
+  <div class="success">
+    <%= msg %>
+  </div>
+<% end %>
+
+<h1>nuuvem ☁️ File Upload</h1>
+
+<div class="wrapper-result">
+  <% @offset = session[:offset] %>
+  <% @total_income = gross_income(@purchases, @offset) %>
+
+  <% if @total_income != 0 %>
+    <p class="income">Total gross income: $<%= @total_income %></p>
+  <% end %>
+
+  <% if @purchases.any? %>
+    <% @all_time_income = gross_income(@purchases) %>
+    <p class="income">All-time gross income: $<%= @all_time_income %></p>
+  <% else %>
+    <p class="income">All-time gross income: $0.0</p>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  base_price: 1
+  vendor: one
+
+two:
+  description: MyString
+  base_price: 1
+  vendor: two
