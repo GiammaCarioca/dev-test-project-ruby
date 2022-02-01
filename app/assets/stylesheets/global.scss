@@ -111,6 +111,12 @@ label.send:hover {
   display: inline-block;
 }
 
+.back-to-home > a {
+  color: $black;
+  font-size: 26px;
+  text-decoration: none;
+}
+
 .cloud {
   width: 200px;
   height: 80px;

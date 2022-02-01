@@ -1,29 +1,33 @@
+<% content_for :page_title, "nuuvem" %>
 <h1>nuuvem ☁️ File Upload</h1>
 
 <div class="wrapper">
-<%= form_tag @pages, :multipart => true do %>
-  <div class="centered">
-      <label for="file" class="choose">Choose file</label>
-      <%= file_field_tag :file, accept: '.tab' %>
-  </div>
-
-  <% flash.each do |type, msg| %>
-    <div class="alert">
-      <%= msg %>
+  <%= form_tag @pages, :multipart => true do %>
+    <div class="centered">
+        <label for="file" class="choose">Choose file</label>
+        <%= file_field_tag :file, accept: '.tab' %>
     </div>
+
+    <% flash.each do |type, msg| %>
+      <div class="alert">
+        <%= msg %>
+      </div>
+    <% end %>
+
+  <div class="scale">
+    <label for="send" class="send">
+      <div class="btn download">
+        <%= submit_tag "Send", :id => "send" %>
+        <div class="cloud">
+          <div class="file">
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+  
   <% end %>
 
-<div class="scale">
-<label for="send" class="send">
-  <div class="btn download">
-    <%= submit_tag "Send", :id => "send" %>
-    <div class="cloud">
-      <div class="file">
-      </div>
-    </div>
-  </div>
-</label>
 </div>
 
-<% end %>
-</div>
+<p>Click on the cloud to upload your file</p>
