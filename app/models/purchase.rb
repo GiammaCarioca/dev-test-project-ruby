@@ -9,22 +9,6 @@ class Purchase < ApplicationRecord
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  def self.upload(file)
-    counter = 0
-
-    CSV.foreach(file.path, col_sep: "\t", headers: true, header_converters: :symbol, encoding: 'UTF-8') do |row|
-      purchase = Purchase.assign_from_row(row)
-
-      if purchase.save
-        counter += 1
-      else
-        puts purchase.errors.full_messages.join(',').to_s
-      end
-
-      puts "Imported #{counter} purchases."
-    end
-  end
-
   def self.assign_from_row(row)
     product = Product.where('description' => row[:item_description])
     customer = Customer.where('name' => row[:purchaser_name])

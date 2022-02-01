@@ -5,22 +5,14 @@ class ApplicationRecord < ActiveRecord::Base
 
   def self.upload(file)
     CSV.foreach(file.path, col_sep: "\t", headers: true, header_converters: :symbol, encoding: 'UTF-8') do |row|
-      item = assign_from_row(row).save
-
-      report(item)
+      assign_from_row(row).save
     end
+
+    check_total_items(self.count)
   end
 
-  def self.report(item)
-    counter = 0
-
-      if item
-        counter += 1
-      else
-        puts self.errors.full_messages.join(',').to_s
-      end
-
-      puts "Imported #{counter} #{self.to_s}."
+  def self.check_total_items(count)
+    puts "Total: #{count} #{self.to_s.pluralize}."
   end
 
 end
