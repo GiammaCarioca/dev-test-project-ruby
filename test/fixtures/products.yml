@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  base_price: 1
-  vendor: one
+  description: R$10 off R$20 of food
+  base_price: 5
+  vendor: customer_one
 
 two:
-  description: MyString
-  base_price: 1
-  vendor: two
+  description: R$30 of awesome for R$10
+  base_price: 3
+  vendor: customer_two
+
+three:
+  description: R$20 Sneakers for R$5
+  base_price: 0
+  vendor: customer_two

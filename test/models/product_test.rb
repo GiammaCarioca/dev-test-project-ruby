@@ -10,9 +10,8 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test 'valid if base_price is integer' do
-    base_price = Product.new(base_price: 5)
-    base_price.valid?
-    assert_empty base_price.errors[:base_price]
+    price = products(:one).base_price
+    assert assert_instance_of(Integer, price)
   end
 
   test 'valid if base_price is greater than 0' do

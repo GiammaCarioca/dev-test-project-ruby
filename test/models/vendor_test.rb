@@ -8,15 +8,13 @@ class VendorTest < ActiveSupport::TestCase
   end
 
   test 'valid if name is a string' do
-    name = Vendor.new(name: "Bob's Pizza")
-    name.valid?
-    assert_empty name.errors[:name]
+    name = vendors(:one)[:name]
+    assert assert_instance_of(String, name)
   end
 
   test 'valid if address is a string' do
-    address = Vendor.new(address: "987 Fake St")
-    address.valid?
-    assert_empty address.errors[:address]
+    address = vendors(:one)[:address]
+    assert assert_instance_of(String, address)
   end
 
   test 'valid if address is not nil' do
@@ -26,9 +24,8 @@ class VendorTest < ActiveSupport::TestCase
   end
 
   test 'invalid if address is nil' do
-    address = Vendor.new(address: "987 Fake St")
-    address.valid?
-    assert_not address == nil
+    address = vendors(:no_address).address
+    assert assert_nil(address)
   end
 
   test "name should be unique" do

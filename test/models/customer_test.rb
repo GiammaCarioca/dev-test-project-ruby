@@ -8,8 +8,8 @@ class CustomerTest < ActiveSupport::TestCase
   end
 
   test 'valid if name is a string' do
-    name = Customer.new(name: "Amy Pond")
-    assert name.valid?
+    name = customers(:one)[:name]
+    assert assert_instance_of(String, name)
   end
 
   test "name should be unique" do
