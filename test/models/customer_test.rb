@@ -4,7 +4,7 @@ require 'test_helper'
 
 class CustomerTest < ActiveSupport::TestCase
   def setup
-    @customer = Customer.create(name: "João Silva")
+    @customer = Customer.create(name: 'João Silva')
   end
 
   test 'valid if name is a string' do
@@ -12,7 +12,7 @@ class CustomerTest < ActiveSupport::TestCase
     assert assert_instance_of(String, name)
   end
 
-  test "name should be unique" do
+  test 'name should be unique' do
     duplicate_customer = @customer.dup
     @customer.save(validate: false)
     duplicate_customer.valid?

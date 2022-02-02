@@ -18,9 +18,9 @@ class VendorTest < ActiveSupport::TestCase
   end
 
   test 'valid if address is not nil' do
-    address = Vendor.new(address: "987 Fake St")
+    address = Vendor.new(address: '987 Fake St')
     address.valid?
-    assert address != nil
+    assert !address.nil?
   end
 
   test 'invalid if address is nil' do
@@ -28,7 +28,7 @@ class VendorTest < ActiveSupport::TestCase
     assert assert_nil(address)
   end
 
-  test "name should be unique" do
+  test 'name should be unique' do
     duplicate_vendor = @vendor.dup
     @vendor.save(validate: false)
     duplicate_vendor.valid?

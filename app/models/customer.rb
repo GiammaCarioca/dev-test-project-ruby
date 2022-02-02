@@ -9,5 +9,4 @@ class Customer < ApplicationRecord
   def self.assign_from_row(row)
     Customer.where(name: row[:purchaser_name]).first_or_initialize
   end
-  
 end

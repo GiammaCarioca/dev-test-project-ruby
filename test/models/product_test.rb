@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
   test 'valid if description is a string' do
-    description = Product.new(description: "R$10 off R$20 of food")
+    description = Product.new(description: 'R$10 off R$20 of food')
     description.valid?
     assert_empty description.errors[:description]
   end
@@ -27,7 +27,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test 'invalid if base_price is string' do
-    base_price = Product.new(base_price: "5.0")
+    base_price = Product.new(base_price: '5.0')
     base_price.valid?
     assert_not base_price.errors[:base_price].empty?
   end
