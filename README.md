@@ -1,4 +1,4 @@
-# Test Web 1
+# Dev Test Project - Ruby
 
 ## Project description
 
