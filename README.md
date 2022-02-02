@@ -12,27 +12,37 @@ Your job is to create a web interface that accepts file uploads, normalizes the 
 
 * Rails version: 6.1.4.4
 
+* Node version: 16.13.2
+
 ## Setup
 
-1. Install all the gems Rails will need:
+1. Install the gems:
 
-        $ bundle install
+        bundle install
 
-2. Initialize database:
+1. Initialize database:
 
-        $ rails db:migrate
+        rails db:migrate
 
-3. Start the web server:
+1. Install webpacker
 
-        $ rails server
+        rails webpacker:install
 
-4. Go to `http://localhost:3000`.
+1. Start the web server:
+
+        rails server
+
+1. Go to `http://localhost:3000`.
 
 ## Testing
 
-        $ rails test
+1. Run the tests:
 
-        $ open coverage/index.html
+        rails test
+
+1. Open coverage/index.html in your browser window to view the report:
+
+        open coverage/index.html
 
 ## Requirements
 
